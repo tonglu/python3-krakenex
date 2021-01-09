@@ -102,6 +102,20 @@ class API(object):
             self.key = f.readline().strip()
             self.secret = f.readline().strip()
         return
+    
+    def pass_in_key(self, key, secret):
+        """ Load key and secret from kwargs.
+
+        Expected file format is key and secret on separate lines.
+
+        :param key, secret
+        :type key, secret: str
+        :returns: None
+
+        """
+        self.key = key
+        self.secret = secret
+        return
 
     def _query(self, urlpath, data, headers=None, timeout=None):
         """ Low-level query handling.
